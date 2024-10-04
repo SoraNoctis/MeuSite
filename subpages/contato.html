@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha História - Este é EU</title>
+    <link rel="stylesheet" href="../css/style_main.css">
+    <link rel="stylesheet" href="../css/contato.css">
+    <!-- Adicione seus favicons aqui -->
+</head>
+
+<body>
+    <div class="background"></div>
+
+    <header class="header">
+        <nav class="nav-grid">
+            <a href="../index.html" class="nav-item">Início</a>
+            <a href="./historia.html" class="nav-item">Minha História</a>
+            <a href="./recomendacoes.html" class="nav-item">Recomendações</a>
+            <a href="./galeria.html" class="nav-item">Galeria</a>
+            <a href="./pensamentos.html" class="nav-item">Pensamentos</a>
+            <!-- Adicione mais links conforme necessário -->
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="section">
+            <h1>Contato e Currículo</h1>
+
+            <div class="container">
+                <div class="resume-section">
+                    <h2>Meu Currículo</h2>
+                    <div class="resume-content">
+                        <!-- Adicione aqui um resumo do seu currículo -->
+                        <h3>Experiência</h3>
+                        <ul>
+                            <li>Cargo, Empresa - Ano a Ano</li>
+                            <li>Cargo, Empresa - Ano a Ano</li>
+                        </ul>
+
+                        <h3>Educação</h3>
+                        <ul>
+                            <li>Grau, Instituição - Ano</li>
+                        </ul>
+
+                        <h3>Habilidades</h3>
+                        <ul>
+                            <li>Habilidade 1</li>
+                            <li>Habilidade 2</li>
+                            <li>Habilidade 3</li>
+                        </ul>
+                    </div>
+                    <div class="download-buttons">
+                        <a href="../documents/curriculo_pt.pdf" download class="download-btn">Download PDF
+                            (Português)</a>
+                        <a href="../documents/resume_en.pdf" download class="download-btn">Download PDF (English)</a>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Entre em Contato</h2>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem:</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/contato-curriculo.js"></script>
+</body>
+
+</html>
