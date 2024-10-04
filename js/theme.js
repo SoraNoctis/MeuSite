@@ -1,4 +1,4 @@
-function updateGradient() {
+function updateGradient(hour) {
     const hour = new Date().getHours();
     let color1, color2;
 
@@ -18,7 +18,7 @@ function updateGradient() {
 
     document.getElementById('background').style.background = `linear-gradient(45deg, ${color1}, ${color2})`;
 
-    setInterval(updateGradient, 300000);
+    setInterval(updateGradient, 30000);
 }
 
 document.querySelectorAll('.nav-item').forEach(item => {
