@@ -1,9 +1,9 @@
-function updateGradient(hour) {
+function updateGradient() {
     const hour = new Date().getHours();
     let color1, color2;
 
-    if(hour >= 5 && hour < 12) {
-        color1  = "#FDB813";
+    if (hour >= 5 && hour < 12) {
+        color1 = "#FDB813";
         color2 = "#4ecdc4";
     } else if (hour >= 12 && hour < 18) {
         color1 = '#FF6B6B';
@@ -17,29 +17,29 @@ function updateGradient(hour) {
     }
 
     document.getElementById('background').style.background = `linear-gradient(45deg, ${color1}, ${color2})`;
-
-    setInterval(updateGradient, 30000);
 }
 
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        document.querySelectorAll('.nav-item').forEach(otherItem => {
-            if (otherItem !== item) {
-                otherItem.classList.add('hidden');
-            }
+function setupNavigation() {
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.nav-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.add('hidden');
+                }
+            });
+            item.classList.add('focused');
         });
-        item.classList.add('focused');
-    });
 
-    item.addEventListener('mouseleave', () => {
-        document.querySelectorAll('.nav-item').forEach(otherItem => {
-            otherItem.classList.remove('hidden');
+        item.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.nav-item').forEach(otherItem => {
+                otherItem.classList.remove('hidden');
+            });
+            item.classList.remove('focused');
         });
-        item.classList.remove('focused');
     });
-});
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+function setupScrolling() {
     const sections = document.querySelectorAll('.section');
     let currentSection = 0;
     let isScrolling = false;
@@ -63,21 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Adicionar indicador de scroll
     const scrollIndicator = document.createElement('div');
     scrollIndicator.classList.add('scroll-indicator');
-    scrollIndicator.innerHTML = '&#9660;'; // Seta para baixo
+    scrollIndicator.innerHTML = '&#9660;';
     document.body.appendChild(scrollIndicator);
 
-    // Mostrar/esconder indicador de scroll
     function updateScrollIndicator() {
-        if (currentSection < sections.length - 1) {
-            scrollIndicator.style.opacity = '1';
-        } else {
-            scrollIndicator.style.opacity = '0';
-        }
+        scrollIndicator.style.opacity = currentSection < sections.length - 1 ? '1' : '0';
     }
 
     updateScrollIndicator();
     window.addEventListener('wheel', updateScrollIndicator);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateGradient();
+    setInterval(updateGradient, 60000); // Update every minute
+    setupNavigation();
+    setupScrolling();
 });
